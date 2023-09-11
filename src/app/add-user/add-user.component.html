@@ -1,0 +1,70 @@
+
+<form [formGroup]="productform">
+    <div mat-dialog-content class="content">
+        <div class="row">
+          <mat-form-field >
+            <mat-label >Select Your Name</mat-label>
+            <mat-select formControlName="names"  placeholder="Enter your name">
+              <mat-option *ngFor="let package of names" [value]="package">{{package}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label>Select Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-form-field >
+            <mat-label>Select Device your working on</mat-label>
+            <mat-select formControlName="dname">
+              <mat-option *ngFor="let device of devices" [value]="device">{{device}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+            <mat-form-field appearance="outline">
+              <mat-label>FTV</mat-label>
+              <input matInput type="input" placeholder="Current testing version" formControlName="prodver">
+          </mat-form-field>
+          &nbsp;
+          <mat-form-field appearance="outline">
+            <mat-label>CPV</mat-label>
+            <input matInput type="input" placeholder="Current Production version" formControlName="tesver">
+        </mat-form-field>
+        </div>
+        <mat-form-field>
+          <mat-label>Percepxion 6.0</mat-label>
+          <mat-select formControlName="cf">
+            <mat-option *ngFor="let cff of cfl" [value]="cff">{{cff}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>LPM 6.8.3</mat-label>
+          <mat-select formControlName="lpm">
+            <mat-option *ngFor="let lps of lpms" [value]="lps">{{lps}}</mat-option>
+  
+          </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field>
+          <mat-label>VM 5.8</mat-label>
+          <mat-select formControlName="vm">
+            <mat-option *ngFor="let vmm of vms" [value]="vmm">{{vmm}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  <br>
+        <mat-form-field appearance="outline" id="comment" >
+          <mat-label>Comment</mat-label>
+          <textarea matInput formControlName="cmt"></textarea>
+        </mat-form-field>
+  
+      </form>
+      
+  <div mat-dialog-actions>
+      <button mat-raised-button (click)="close()" >Cancel</button>
+      <button mat-raised-button mat-button color="warn" (click)="save()">{{actionbtn}}</button>
+  
+  </div>
